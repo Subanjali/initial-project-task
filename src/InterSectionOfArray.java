@@ -1,6 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 /**
  * InterSectionOfArray class will read two input array from user and perform intersection
  * on the array values and it will print result.
@@ -27,17 +29,12 @@ public class InterSectionOfArray {
 			arrayTwo[i] = scanner.nextInt();
 		}
 		System.out.println("Intersection of the two arrays ::");
-		List<Integer> outputList =  new ArrayList<Integer>();
-		for(int i = 0; i<arrayOne.length; i++ ) {
-			for(int j = 0; j<arrayTwo.length; j++) {
-				if(arrayOne[i]==arrayTwo[j]) {
-					if(!outputList.contains(arrayTwo[j]))
-						outputList.add(arrayTwo[j]);
-				}
-			}
-		}
-		System.out.println(outputList);
-	}
+		
+		Set<Integer> outputSet = Arrays.stream(arrayOne).boxed().collect(Collectors.toSet());
+		outputSet.retainAll(Arrays.stream(arrayTwo).boxed().collect(Collectors.toSet()));
+		System.out.println(outputSet);
+		
+}
 
 
 
