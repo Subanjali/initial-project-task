@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 /**
  * InterSectionOfArray class will read two input array from user and perform intersection
- * on the array values and it will print result
+ * on the array values and it will print result.
  * @author Suba
  *
  */
